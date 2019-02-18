@@ -1,5 +1,5 @@
 //
-//  CameraViewController.swift
+//  CameraView.swift
 //  SmartCamera
 //
 //  Created by Sergey Shalnov on 10/02/2019.
@@ -10,7 +10,8 @@ import UIKit
 import AVKit
 import Vision
 
-class CameraViewController: UIViewController {
+
+class CameraView: UIViewController, ICameraView {
     
     // MARK: - UI Elements
     
@@ -47,6 +48,10 @@ class CameraViewController: UIViewController {
         return view
     }()
     
+    // MARK: - Variables
+    
+    var presenter: ICameraPresenter?
+    
     
     // MARK: - Lifecycle
 
@@ -55,7 +60,7 @@ class CameraViewController: UIViewController {
         
         setup()
     }
-    
+
     
     // MARK: - Setup
     
@@ -72,7 +77,7 @@ class CameraViewController: UIViewController {
     private func setupConstraints() {
         informationPanel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 15).isActive = true
         informationPanel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -15).isActive = true
-        informationPanel.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -15).isActive = true
+        informationPanel.bottomAnchor.constraint(equalTo: self.view.layoutMarginsGuide.bottomAnchor, constant: -15).isActive = true
         
         informationObjectLabel.leadingAnchor.constraint(equalTo: informationPanel.leadingAnchor, constant: 15).isActive = true
         informationPercentLabel.trailingAnchor.constraint(equalTo: informationPanel.trailingAnchor, constant: -15).isActive = true
@@ -83,48 +88,25 @@ class CameraViewController: UIViewController {
     }
     
     private func setupCapture() {
-        let captureSession = AVCaptureSession()
-        guard let captureDevice = AVCaptureDevice.default(for: .video) else { return }
-        guard let input = try? AVCaptureDeviceInput(device: captureDevice) else { return }
-        
-        captureSession.addInput(input)
-        captureSession.startRunning()
-        
-        let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        
-        view.layer.addSublayer(previewLayer)
-        previewLayer.frame = view.frame
-        
-        let dataOutput = AVCaptureVideoDataOutput()
-        dataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "videoQueue"))
-        
-        captureSession.addOutput(dataOutput)
+        presenter?.setCaptureSession()
     }
-    
-    
     
 }
 
-extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate  {
+
+// MARK: - ICameraView extension
+
+extension CameraView {
     
-    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        
-        guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
-        guard let model = try? VNCoreMLModel(for: Resnet50().model) else { return }
-        
-        let request = VNCoreMLRequest(model: model) { (finishRequest, error) in
-            
-            guard let results = finishRequest.results as? [VNClassificationObservation] else { return }
-            guard let firstObservation = results.first else { return }
-            
-            print("$LOG: \(firstObservation.identifier)  % \((firstObservation.confidence * 100).format(".2"))")
-            
-            DispatchQueue.main.async {
-                self.informationObjectLabel.text = firstObservation.identifier
-                self.informationPercentLabel.text = "% \((firstObservation.confidence * 100).format(".2"))"
-            }
-        }
-        
-        try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:]).perform([request])
+    func setObjectInformation(object: String, percent: String) {
+        informationObjectLabel.text = object
+        informationPercentLabel.text = percent
     }
+    
+    func setCameraPreviewLayer(layer: AVCaptureVideoPreviewLayer) {
+        view.layer.addSublayer(layer)
+        layer.frame = view.frame
+    }
+
 }
+

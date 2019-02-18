@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A391F7F221B3C2C00E43913 /* ICameraPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A391F7E221B3C2C00E43913 /* ICameraPresenter.swift */; };
+		1A391F81221B3C3600E43913 /* CameraPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A391F80221B3C3600E43913 /* CameraPresenter.swift */; };
+		1A391F83221B3C9200E43913 /* ICameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A391F82221B3C9200E43913 /* ICameraView.swift */; };
 		1A5389C22210A6E50023AFE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5389C12210A6E50023AFE1 /* AppDelegate.swift */; };
 		1A5389C92210A6E70023AFE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A5389C82210A6E70023AFE1 /* Assets.xcassets */; };
 		1A5389CC2210A6E70023AFE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A5389CA2210A6E70023AFE1 /* LaunchScreen.storyboard */; };
 		1A5389D72210A6E70023AFE1 /* SmartCameraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5389D62210A6E70023AFE1 /* SmartCameraTests.swift */; };
 		1A5389E42210AE330023AFE1 /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1A5389E32210AE330023AFE1 /* Resnet50.mlmodel */; };
-		1A5389E72210AF2B0023AFE1 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5389E52210AF2B0023AFE1 /* CameraViewController.swift */; };
-		1A5389E82210AF2B0023AFE1 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A5389E62210AF2B0023AFE1 /* CameraViewController.xib */; };
+		1A5389E72210AF2B0023AFE1 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5389E52210AF2B0023AFE1 /* CameraView.swift */; };
+		1A5389E82210AF2B0023AFE1 /* CameraView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A5389E62210AF2B0023AFE1 /* CameraView.xib */; };
 		1A5389EB2210C5DF0023AFE1 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5389EA2210C5DF0023AFE1 /* Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +31,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A391F7E221B3C2C00E43913 /* ICameraPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICameraPresenter.swift; sourceTree = "<group>"; };
+		1A391F80221B3C3600E43913 /* CameraPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPresenter.swift; sourceTree = "<group>"; };
+		1A391F82221B3C9200E43913 /* ICameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICameraView.swift; sourceTree = "<group>"; };
 		1A5389BE2210A6E50023AFE1 /* SmartCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A5389C12210A6E50023AFE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A5389C82210A6E70023AFE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -37,8 +43,8 @@
 		1A5389D62210A6E70023AFE1 /* SmartCameraTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartCameraTests.swift; sourceTree = "<group>"; };
 		1A5389D82210A6E70023AFE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A5389E32210AE330023AFE1 /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
-		1A5389E52210AF2B0023AFE1 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
-		1A5389E62210AF2B0023AFE1 /* CameraViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
+		1A5389E52210AF2B0023AFE1 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		1A5389E62210AF2B0023AFE1 /* CameraView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraView.xib; sourceTree = "<group>"; };
 		1A5389EA2210C5DF0023AFE1 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,6 +66,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A391F7B221B3B3300E43913 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1A391F7C221B3B3900E43913 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1A391F82221B3C9200E43913 /* ICameraView.swift */,
+				1A5389E52210AF2B0023AFE1 /* CameraView.swift */,
+				1A5389E62210AF2B0023AFE1 /* CameraView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1A391F7D221B3B4200E43913 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				1A391F7E221B3C2C00E43913 /* ICameraPresenter.swift */,
+				1A391F80221B3C3600E43913 /* CameraPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		1A5389B52210A6E50023AFE1 = {
 			isa = PBXGroup;
 			children = (
@@ -81,8 +113,9 @@
 		1A5389C02210A6E50023AFE1 /* SmartCamera */ = {
 			isa = PBXGroup;
 			children = (
-				1A5389E52210AF2B0023AFE1 /* CameraViewController.swift */,
-				1A5389E62210AF2B0023AFE1 /* CameraViewController.xib */,
+				1A391F7B221B3B3300E43913 /* Model */,
+				1A391F7C221B3B3900E43913 /* View */,
+				1A391F7D221B3B4200E43913 /* Presenter */,
 				1A5389E92210BBA40023AFE1 /* Common */,
 				1A5389C12210A6E50023AFE1 /* AppDelegate.swift */,
 				1A5389EA2210C5DF0023AFE1 /* Extension.swift */,
@@ -192,7 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A5389CC2210A6E70023AFE1 /* LaunchScreen.storyboard in Resources */,
-				1A5389E82210AF2B0023AFE1 /* CameraViewController.xib in Resources */,
+				1A5389E82210AF2B0023AFE1 /* CameraView.xib in Resources */,
 				1A5389C92210A6E70023AFE1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,8 +244,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A5389E72210AF2B0023AFE1 /* CameraViewController.swift in Sources */,
+				1A391F7F221B3C2C00E43913 /* ICameraPresenter.swift in Sources */,
+				1A391F83221B3C9200E43913 /* ICameraView.swift in Sources */,
+				1A5389E72210AF2B0023AFE1 /* CameraView.swift in Sources */,
 				1A5389E42210AE330023AFE1 /* Resnet50.mlmodel in Sources */,
+				1A391F81221B3C3600E43913 /* CameraPresenter.swift in Sources */,
 				1A5389C22210A6E50023AFE1 /* AppDelegate.swift in Sources */,
 				1A5389EB2210C5DF0023AFE1 /* Extension.swift in Sources */,
 			);

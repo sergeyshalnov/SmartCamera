@@ -15,9 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        let view = CameraView()
+        let presenter: ICameraPresenter = CameraPresenter(view: view)
         
-        let controller = CameraViewController()
-        window?.rootViewController = controller
+        view.presenter = presenter
+        
+        window?.rootViewController = view
         window?.makeKeyAndVisible()
         
         return true
