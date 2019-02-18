@@ -9,4 +9,4 @@ install:
 
 jobs:
   include:
-    - script: xcodebuild clean build test -project SmartCamera.xcodeproj -scheme SmartCamera CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO xcpretty -c
+    - script: xcodebuild clean build test -project SmartCamera.xcodeproj -scheme SmartCamera CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO | xcpretty -c
