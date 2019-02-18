@@ -1,0 +1,12 @@
+language: swift
+osx_image: xcode10.1 
+
+install:
+  - gem install xcpretty
+  - wget https://swift.org/builds/swift-4.2-branch/xcode/swift-4.2-DEVELOPMENT-SNAPSHOT-2018-05-30-a/swift-4.2-DEVELOPMENT-SNAPSHOT-2018-05-30-a-osx.pkg
+  - sudo installer -pkg swift-4.2-DEVELOPMENT-SNAPSHOT-2018-05-30-a-osx.pkg -target /
+  - export PATH="/Library/Developer/Toolchains/swift-4.2-DEVELOPMENT-SNAPSHOT-2018-05-30-a.xctoolchain/usr/bin:$PATH"
+
+jobs:
+  include:
+    - script: xcodebuild clean build test -project SmartCamera.xcodeproj -scheme SmartCamera CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO xcpretty -c
